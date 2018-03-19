@@ -23,6 +23,7 @@ const routes = [
             // endregion
         ]
     },
+    { path: 'theme', loadChildren: './theme/theme.module#ThemeModule' },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '404' }
 ];

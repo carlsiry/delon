@@ -1,0 +1,38 @@
+<p>{{ data | json }}</p>
+<form nz-form>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">颜色</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+            <color [(value)]="data['primary-color']"></color>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="4">字体</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+            <input nz-input [(ngModel)]="data['font-family']" name="font-family">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">字号</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+            <nz-select [(ngModel)]="data['font-size-base']" name="font-size-base">
+                <nz-option nzLabel="14px" nzValue="14px"></nz-option>
+                <nz-option nzLabel="16px" nzValue="16px"></nz-option>
+                <nz-option nzLabel="18px" nzValue="18px"></nz-option>
+                <nz-option nzLabel="20px" nzValue="20px"></nz-option>
+            </nz-select>
+        </nz-form-control>
+        <nz-form-label [nzSpan]="4">ICONFONT</nz-form-label>
+        <nz-form-control [nzSpan]="8">
+            <input nz-input [(ngModel)]="data['icon-url']" name="icon-url">
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item nz-row>
+        <nz-form-control [nzSpan]="8" [nzOffset]="4">
+            <button nz-button nzType="primary" (click)="apply()">应用</button>
+            <button nz-button nzType="dashed" (click)="show(codeTpl)">生成主题参数</button>
+            <button nz-button routerLink="/theme/demo">预览</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>
+<ng-template #codeTpl>
+    <textarea [ngModel]="code" nz-input [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+</ng-template>
